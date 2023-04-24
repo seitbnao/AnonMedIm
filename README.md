@@ -9,7 +9,7 @@ Esta API tem como objetivo receber arquivos no formato HL7 ou DICOM contendo inf
 - POST /anonimizar-dicom: Recebe um arquivo DICOM no corpo da requisição, realiza a anonimização dos dados do paciente e retorna o arquivo anonimizado para download.
 
 Ambos os métodos seguem o mesmo fluxo: primeiro, é verificado se o arquivo foi enviado corretamente na requisição. Em seguida, o arquivo é lido e convertido para um objeto HL7 ou DICOM, dependendo do método utilizado. Os dados do paciente são então anonimizados, seguindo as diretrizes estabelecidas. Por fim, o arquivo anonimizado é retornado como resposta para download.
-Além disso, a API também possui um limite de 3 requisições por minuto para evitar sobrecarga do servidor.
+Além disso, a API também possui um limite de 300 requisições por minuto para evitar sobrecarga do servidor.
 
 Para utilizar a API, basta fazer uma requisição POST para a URL correspondente ao método desejado, enviando o arquivo a ser anonimizado no corpo da requisição. Caso a requisição seja bem-sucedida, o arquivo anonimizado será retornado como resposta, pronto para download.
 
