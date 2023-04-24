@@ -40,7 +40,111 @@ Corpo da requisição:
 O arquivo DICOM anonimizado será retornado como download.
 Lembre-se de respeitar o limite de 300 requisições por minuto para evitar bloqueios ou sobrecarga do servidor.
 
+** Exemplos de consumo da API em PHP para o arquivo DICOM**
+```sh
+<?php
 
+// Caminho para o arquivo DICOM a ser anonimizado
+$filePath = 'caminho/para/arquivo.dcm';
+
+// URL da API
+$url = 'http://exemplo.com/anonimize-dicom';
+
+// Cria um objeto cURL
+$curl = curl_init();
+
+// Configura as opções do cURL
+curl_setopt_array($curl, array(
+    CURLOPT_URL => $url,
+    CURLOPT_POST => 1,
+    CURLOPT_POSTFIELDS => array(
+        'file' => curl_file_create($filePath),
+    ),
+    CURLOPT_RETURNTRANSFER => 1,
+));
+
+// Executa a requisição
+$response = curl_exec($curl);
+
+// Verifica se ocorreu algum erro
+if (curl_errno($curl)) {
+    echo 'Erro ao realizar a requisição: ' . curl_error($curl);
+    exit;
+}
+
+// Verifica o código de status da resposta
+$status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+if ($status != 200) {
+    echo 'Erro ao anonimizar o arquivo DICOM: código de status ' . $status;
+    exit;
+}
+
+// Salva o arquivo DICOM anonimizado em disco
+$anonFilePath = 'caminho/para/arquivo-anonimizado.dcm';
+file_put_contents($anonFilePath, $response);
+
+// Fecha a conexão cURL
+curl_close($curl);
+
+echo 'Arquivo DICOM anonimizado salvo em: ' . $anonFilePath;
+
+?>
+```
+
+** Exemplos de consumo da API em PHP para o arquivo HL7**
+```sh
+
+<?php
+
+// Caminho para o arquivo HL7 a ser anonimizado
+$filePath = 'caminho/para/arquivo.hl7';
+
+// Conteúdo do arquivo HL7
+$fileContent = file_get_contents($filePath);
+
+// URL da API
+$url = 'http://exemplo.com/anonimizar-hl7';
+
+// Cria um objeto cURL
+$curl = curl_init();
+
+// Configura as opções do cURL
+curl_setopt_array($curl, array(
+    CURLOPT_URL => $url,
+    CURLOPT_POST => 1,
+    CURLOPT_POSTFIELDS => array(
+        'arquivoHL7' => $fileContent,
+    ),
+    CURLOPT_RETURNTRANSFER => 1,
+));
+
+// Executa a requisição
+$response = curl_exec($curl);
+
+// Verifica se ocorreu algum erro
+if (curl_errno($curl)) {
+    echo 'Erro ao realizar a requisição: ' . curl_error($curl);
+    exit;
+}
+
+// Verifica o código de status da resposta
+$status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+if ($status != 200) {
+    echo 'Erro ao anonimizar o arquivo HL7: código de status ' . $status;
+    exit;
+}
+
+// Salva o arquivo HL7 anonimizado em disco
+$anonFilePath = 'caminho/para/arquivo-anonimizado.hl7';
+file_put_contents($anonFilePath, $response);
+
+// Fecha a conexão cURL
+curl_close($curl);
+
+echo 'Arquivo HL7 anonimizado salvo em: ' . $anonFilePath;
+
+?>
+```
 ## Contribuidores
 Este projeto foi desenvolvido por:
 - Djunio Rosa de Melo FIlho
