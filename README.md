@@ -1,5 +1,5 @@
-# "AnonMedIm" **- uma abreviação criativa para "Anonymization of Medical Image files".**
- Uma API de Anonimização de Dados de Paciente em Arquivos HL7 e DICOM**
+# "AnonMedIm" - uma abreviação criativa para "Anonymization of Medical Image files".
+**Uma API de Anonimização de Dados de Paciente em Arquivos HL7 e DICOM**
 
 Esta API tem como objetivo receber arquivos no formato HL7 ou DICOM contendo informações de pacientes e realizar a anonimização desses dados, respeitando as diretrizes da Lei Geral de Proteção de Dados (LGPD).
 
