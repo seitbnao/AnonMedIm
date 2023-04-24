@@ -80,7 +80,7 @@ app.post('/anonimize-dicom', limiter, async (req, res) => {
 });
 
 // Endpoint POST para anonimizar um arquivo HL7
-app.post('/anonimizar-hl7', limiter, async (req, res) => {
+app.post('/anonimize-hl7', limiter, async (req, res) => {
     try {
         // Verificar se foi enviado um arquivo HL7 na requisição
         if (!req.body || !req.body.arquivoHL7) {
