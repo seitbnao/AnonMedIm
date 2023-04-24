@@ -1,5 +1,6 @@
 # "AnonMedIm" - uma abreviação criativa para "Anonymization of Medical Image files".
 **Uma API de Anonimização de Dados de Paciente em Arquivos HL7 e DICOM**
+
 Esta API tem como objetivo receber arquivos no formato HL7 ou DICOM contendo informações de pacientes e realizar a anonimização desses dados, respeitando as diretrizes da Lei Geral de Proteção de Dados (LGPD).
 
 ## A API possui dois métodos principais:
@@ -38,6 +39,7 @@ Corpo da requisição:
 **Resposta:**
 O arquivo DICOM anonimizado será retornado como download.
 Lembre-se de respeitar o limite de 300 requisições por minuto para evitar bloqueios ou sobrecarga do servidor.
+
 
 ## Contribuidores
 Este projeto foi desenvolvido por:
