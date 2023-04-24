@@ -33,14 +33,14 @@ A API estaa disponível na porta 3000. Agora você pode testá-la usando ferrame
 
 Para testar o endpoint /anonimize-dicom, você pode enviar uma requisição POST contendo um arquivo DICOM. Você pode fazer isso usando o Postman, selecionando a opção "Body" e "form-data", e então selecionando o arquivo DICOM.
 
-Para testar o endpoint /anonimizar-hl7, você pode enviar uma requisição POST contendo um arquivo HL7. Você pode fazer isso usando o Postman, selecionando a opção "Body" e "raw", e então colando o conteúdo do arquivo HL7 no formato de string.
+Para testar o endpoint /anonimize-hl7, você pode enviar uma requisição POST contendo um arquivo HL7. Você pode fazer isso usando o Postman, selecionando a opção "Body" e "raw", e então colando o conteúdo do arquivo HL7 no formato de string.
 
-Certifique-se de que as requisições sejam enviadas para http://localhost:3000/anonimize-dicom e http://localhost:3000/anonimizar-hl7, respectivamente.
+Certifique-se de que as requisições sejam enviadas para http://localhost:3000/anonimize-dicom e http://localhost:3000/anonimize-hl7, respectivamente.
 
-**Exemplo de requisição utilizando o método /anonimizar-hl7:**
+**Exemplo de requisição utilizando o método /anonimize-hl7:**
 
 ```sh
-POST http://localhost:3000/anonimizar-hl7
+POST http://localhost:3000/anonimize-hl7
 
 Corpo da requisição:
 {
@@ -50,9 +50,9 @@ Corpo da requisição:
 **Resposta:**
 O arquivo HL7 anonimizado será retornado como download.
 
-**Exemplo de requisição utilizando o método /anonimizar-dicom:**
+**Exemplo de requisição utilizando o método /anonimize-dicom:**
 ```sh
-POST http://localhost:3000/anonimizar-dicom
+POST http://localhost:3000/anonimize-dicom
 
 Corpo da requisição:
 {
