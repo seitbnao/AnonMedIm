@@ -40,7 +40,7 @@ Corpo da requisição:
 O arquivo DICOM anonimizado será retornado como download.
 Lembre-se de respeitar o limite de 300 requisições por minuto para evitar bloqueios ou sobrecarga do servidor.
 
-** Exemplos de consumo da API em PHP para o arquivo DICOM**
+**Exemplos de consumo da API em PHP para o arquivo DICOM**
 ```sh
 <?php
 
@@ -91,7 +91,7 @@ echo 'Arquivo DICOM anonimizado salvo em: ' . $anonFilePath;
 ?>
 ```
 
-** Exemplos de consumo da API em PHP para o arquivo HL7**
+**Exemplos de consumo da API em PHP para o arquivo HL7**
 ```sh
 
 <?php
