@@ -29,7 +29,7 @@ Após a instalação das dependências, execute o seguinte comando para iniciar 
 ```sh
 node index.js
 ```
-A API estaa disponível na porta 3000. Agora você pode testá-la usando ferramentas como Postman ou curl.
+A API esta disponível na porta 3000. Agora você pode testá-la usando ferramentas como Postman ou curl.
 
 Para testar o endpoint /anonimize-dicom, você pode enviar uma requisição POST contendo um arquivo DICOM. Você pode fazer isso usando o Postman, selecionando a opção "Body" e "form-data", e então selecionando o arquivo DICOM.
 
