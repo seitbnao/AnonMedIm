@@ -13,6 +13,30 @@ Além disso, a API também possui um limite de 3 requisições por minuto para e
 
 Para utilizar a API, basta fazer uma requisição POST para a URL correspondente ao método desejado, enviando o arquivo a ser anonimizado no corpo da requisição. Caso a requisição seja bem-sucedida, o arquivo anonimizado será retornado como resposta, pronto para download.
 
+
+**Para iniciar e testar a API, siga as instruções abaixo:**
+
+Certifique-se de ter o Node.js instalado em sua máquina. Se não tiver, você pode baixá-lo e instalá-lo em https://nodejs.org.
+Crie um novo diretório em sua máquina e copie o código da API para um arquivo chamado app.js (ou outro nome que preferir).
+Abra o terminal e navegue até o diretório onde você salvou o arquivo app.js.
+Execute o seguinte comando para instalar as dependências da API:
+
+```sh
+npm install
+```
+Após a instalação das dependências, execute o seguinte comando para iniciar a API:
+
+```sh
+node index.js
+```
+A API estaa disponível na porta 3000. Agora você pode testá-la usando ferramentas como Postman ou curl.
+
+Para testar o endpoint /anonimize-dicom, você pode enviar uma requisição POST contendo um arquivo DICOM. Você pode fazer isso usando o Postman, selecionando a opção "Body" e "form-data", e então selecionando o arquivo DICOM.
+
+Para testar o endpoint /anonimizar-hl7, você pode enviar uma requisição POST contendo um arquivo HL7. Você pode fazer isso usando o Postman, selecionando a opção "Body" e "raw", e então colando o conteúdo do arquivo HL7 no formato de string.
+
+Certifique-se de que as requisições sejam enviadas para http://localhost:3000/anonimize-dicom e http://localhost:3000/anonimizar-hl7, respectivamente.
+
 **Exemplo de requisição utilizando o método /anonimizar-hl7:**
 
 ```sh
