@@ -24,7 +24,22 @@ app.post('/anonimize-dicom', limiter, async (req, res) => {
 
         // Lê o arquivo DICOM enviado
         const file = req.files.file.data;
+
+        // Verifica se o tipo de arquivo enviado é DICOM
+        if (!file.slice(0, 4).equals('DICM')) {
+            return res.status(400).send('Arquivo não é DICOM');
+        }
+        // Lê o arquivo DICOM enviado
+        // Verifica se o arquivo DICOM é válido
         const dcm = new DCMFile(file);
+        if (!dcm) {
+            return res.status(400).send('Arquivo DICOM inválido');
+        }
+
+        // Verifica se o arquivo DICOM contém informações do paciente
+        if (!dcm.getElement('0010', '0010') || !dcm.getElement('0010', '0030') || !dcm.getElement('0010', '0020')) {
+            return res.status(400).send('Arquivo DICOM não contém informações do paciente');
+        }
 
         // Anonimiza o nome do paciente
         const name = dcm.getElement('0010', '0010');
@@ -66,11 +81,15 @@ app.post('/anonimize-dicom', limiter, async (req, res) => {
 
 // Endpoint POST para anonimizar um arquivo HL7
 app.post('/anonimizar-hl7', limiter, async (req, res) => {
-
     try {
         // Verificar se foi enviado um arquivo HL7 na requisição
-        if (!req.body.arquivoHL7) {
+        if (!req.body || !req.body.arquivoHL7) {
             return res.status(400).send({ mensagem: 'Arquivo HL7 não encontrado na requisição.' });
+        }
+
+        // Verificar se o arquivo HL7 é uma string válida
+        if (typeof req.body.arquivoHL7 !== 'string') {
+            return res.status(400).send({ mensagem: 'O arquivo HL7 enviado na requisição é inválido.' });
         }
 
         // Ler o conteúdo do arquivo HL7 enviado na requisição
@@ -79,6 +98,11 @@ app.post('/anonimizar-hl7', limiter, async (req, res) => {
         // Converter o conteúdo para objeto HL7
         const parser = new hl7.Parser();
         const mensagemHL7 = parser.parse(conteudoHL7);
+
+        // Verificar se o objeto HL7 é válido
+        if (!mensagemHL7) {
+            return res.status(400).send({ mensagem: 'O arquivo HL7 enviado na requisição é inválido.' });
+        }
 
         // Anonimizar os dados do paciente na mensagem HL7
         const nomePaciente = mensagemHL7['PID']['5']['1'];
@@ -103,3 +127,4 @@ app.post('/anonimizar-hl7', limiter, async (req, res) => {
         res.status(500).send('Ocorreu um erro durante a anonimização do arquivo hl7');
     }
 });
+
