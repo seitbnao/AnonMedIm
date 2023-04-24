@@ -1,0 +1,23 @@
+{
+  "name": "dicom_api",
+  "version": "1.0.0",
+  "description": "Api para anonimização de arquivos DICOM, seguindo as conformidades da Lei Geral de Proteção de Dados Pessoes do Brasil (LGPD)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "LGPD",
+    "DICOM",
+    "API"
+  ],
+  "author": "Djunio Rosa de Melo Filho",
+  "license": "ISC",
+  "dependencies": {
+    "dcmjs": "^0.29.6",
+    "express": "^4.18.2",
+    "hl7": "^1.1.1",
+    "hl7.lib": "^1.0.3"
+  }
+}
