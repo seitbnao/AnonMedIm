@@ -3,7 +3,7 @@ const fileUpload = require('express-fileupload');
 const DCMFile = require('dcmjs').data.DCMFile;
 const hl7 = require('hl7');
 const app = express();
-
+const port = 3000;
 const fs = require('fs');
 const rateLimit = require('express-rate-limit');
 
@@ -14,6 +14,15 @@ const limiter = rateLimit({
 
 app.use(express.json());
 app.use(fileUpload());
+
+app.get('/', (req, res) => {
+    res.send('Requisição inválida, leia a documentação')
+})
+
+app.post('/', (req, res) => {
+    res.send('Requisição inválida, leia a documentação')
+})
+
 
 app.post('/anonimize-dicom', limiter, async (req, res) => {
     try {
@@ -128,3 +137,6 @@ app.post('/anonimize-hl7', limiter, async (req, res) => {
     }
 });
 
+app.listen(port, () => {
+    console.log(`API listening on port http://localhost:${port}`)
+})
