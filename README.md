@@ -127,7 +127,7 @@ $filePath = 'caminho/para/arquivo.hl7';
 $fileContent = file_get_contents($filePath);
 
 // URL da API
-$url = 'http://exemplo.com/anonimizar-hl7';
+$url = 'http://exemplo.com/anonimize-hl7';
 
 // Cria um objeto cURL
 $curl = curl_init();
