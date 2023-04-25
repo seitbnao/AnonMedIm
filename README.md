@@ -27,7 +27,7 @@ npm install
 Após a instalação das dependências, execute o seguinte comando para iniciar a API:
 
 ```sh
-node index.js
+npm run dev
 ```
 A API esta disponível na porta 3000. Agora você pode testá-la usando ferramentas como Postman ou curl.
 
